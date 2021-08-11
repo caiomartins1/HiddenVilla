@@ -1,20 +1,21 @@
 @page "/"
 @using HiddenVilla_Server.Model
 
-@* <h1>Hello, world!</h1>
+@*<h1>Hello, world!</h1>
 
-Welcome to your new app.
+    Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?" /> *@
+    <SurveyPrompt Title="How is Blazor working for you?" />*@
+
 
 <h3 class="bg-light border p-2">
-  First Room
+    First Room
 </h3>
 <p>
-  Room: @Room.RoomName
+    Room: @Room.RoomName
 </p>
 <p>
-  Price: @Room.Price
+    Price: @Room.Price
 </p>
 <input type="number" @bind-value="Room.Price" @bind-value:event="oninput">
 <br>
@@ -23,13 +24,34 @@ Welcome to your new app.
 
 <h5>This room is @(Room.IsActive ? "Active" : "Inactive")</h5>
 
+<select @bind="selectedRoomProp">
+
+    @foreach(var prop in Room.RoomProps)
+    {
+        <option value="@prop.Name">
+            @prop.Name
+        </option>
+    }
+
+</select><br />
+<span>The selected room prop is: @selectedRoomProp</span>
+
 @code
 {
-  BlazorRoom Room = new()
-  {
-    Id = 1,
-    RoomName = "Room 1",
-    IsActive = true,
-    Price = 499,
-  };
+    string selectedRoomProp = "";
+
+    BlazorRoom Room = new()
+    {
+        Id = 1,
+        RoomName = "Room 1",
+        IsActive = true,
+        Price = 499,
+        RoomProps = new()
+        {
+                new BlazorRoomProp { Id = 0, Name = "TVs", Value = "2" },
+                new BlazorRoomProp { Id = 1, Name = "IPads", Value = "1" },
+                new BlazorRoomProp { Id = 2, Name = "Phones", Value = "3" },
+        }
+
+    };
 }
