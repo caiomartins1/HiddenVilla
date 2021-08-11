@@ -8,6 +8,6 @@ namespace HiddenVilla_Server.Model
 
         public decimal Price { get; set; }
 
-        public bool isActive { get; set; }
+        public bool IsActive { get; set; }
     }
 }

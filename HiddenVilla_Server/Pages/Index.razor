@@ -16,8 +16,12 @@ Welcome to your new app.
 <p>
   Price: @Room.Price
 </p>
+<input type="number" @bind-value="Room.Price" @bind-value:event="oninput">
+<br>
 
-<input type="number" @bind-value="@Room.Price" @bind-value:event="oninput">
+<input type="checkbox" @bind-value="Room.IsActive" checked="@(Room.IsActive ?  "checked" : null)"> Is Active
+
+<h5>This room is @(Room.IsActive ? "Active" : "Inactive")</h5>
 
 @code
 {
@@ -25,7 +29,7 @@ Welcome to your new app.
   {
     Id = 1,
     RoomName = "Room 1",
-    isActive = true,
+    IsActive = true,
     Price = 499,
   };
 }
