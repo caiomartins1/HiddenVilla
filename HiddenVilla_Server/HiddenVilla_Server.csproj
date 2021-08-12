@@ -6,8 +6,10 @@
 
   <ItemGroup>
     <None Remove="Pages\LearnBlazor\" />
+    <None Remove="Pages\LearnBlazor\LearnBlazorComponents\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\LearnBlazor\" />
+    <Folder Include="Pages\LearnBlazor\LearnBlazorComponents\" />
   </ItemGroup>
 </Project>
