@@ -1,0 +1,22 @@
+﻿@using Model
+
+<div class="bg-white border p-4">
+    <p>@Room.RoomName</p>
+    <p>$@Room.Price</p>
+    <input type="checkbox" checked="@(Room.IsActive ? "checked": null)" @bind-value="Room.IsActive" /> Is Active
+    <p>This room is @(Room.IsActive ? "Active" : "Inactive")</p>
+    @if (Room.IsActive)
+    {
+        @foreach (var prop in Room.RoomProps)
+        {
+            <p>@prop.Name - @prop.Value</p>
+        }
+    }
+    <EditDeleteButton IsAdmin="false" />
+</div>
+
+@code
+{
+    [Parameter]
+    public BlazorRoom Room { get; set; }
+}

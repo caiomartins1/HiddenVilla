@@ -8,20 +8,7 @@
     <div class="d-flex">
         @foreach(var room in RoomsList)
         {
-                <div class="bg-white border p-4">
-                    <p>@room.RoomName</p>
-                    <p>$@room.Price</p>
-                    <input type="checkbox" checked="@(room.IsActive ? "checked": null)" @bind-value="room.IsActive"/> Is Active
-                    <p>This room is @(room.IsActive ? "Active" : "Inactive")</p>
-                    @if (room.IsActive)
-                    {
-                        @foreach(var prop in room.RoomProps)
-                        {
-                            <p>@prop.Name - @prop.Value</p>
-                        }
-                    }
-                    <EditDeleteButton  IsAdmin="false"/>
-                </div>
+            <IndividualRoom  Room="@room"/>
         }
     </div>
 </div>
