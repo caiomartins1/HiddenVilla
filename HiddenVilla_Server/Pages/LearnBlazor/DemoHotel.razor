@@ -1,6 +1,5 @@
 @page "/demohotel"
 @using Model
-@using HiddenVilla_Server.Pages.LearnBlazor.LearnBlazorComponents
 
 
 <h3>We will display hotel rooms and amenities here!</h3>
@@ -21,7 +20,7 @@
                             <p>@prop.Name - @prop.Value</p>
                         }
                     }
-                    <EditDeleteButton />
+                    <EditDeleteButton  IsAdmin="false"/>
                 </div>
         }
     </div>
