@@ -1,0 +1,14 @@
+﻿@using Model
+
+<div class="bg-white border p-4">
+    <p>Amenity - @Amenity.Id</p>
+    <p>@Amenity.Name</p>
+    <p>@Amenity.Description</p>
+    <EditDeleteButton IsAdmin="false" />
+</div>
+
+@code
+{
+    [Parameter]
+    public Amenity Amenity { get; set; }
+}

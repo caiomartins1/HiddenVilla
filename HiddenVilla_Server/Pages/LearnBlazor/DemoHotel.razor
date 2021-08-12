@@ -5,18 +5,30 @@
 <h3>We will display hotel rooms and amenities here!</h3>
 <div class="bg-light border p-2">
     <h4>Room List [USING COMPONENT]</h4>
+
     <div class="d-flex">
         @foreach(var room in RoomsList)
         {
             <IndividualRoom  Room="@room"/>
         }
     </div>
+
+    <h4>Hotel Amenitie's [ASSIGNMENT]</h4>
+
+    <div class="d-flex">
+        @foreach(var amenity in AmenitiesList)
+        {
+            <IndividualAmenity  Amenity="@amenity"/>
+        }
+    </div>
+
 </div>
 
 
 @code
 {
     List<BlazorRoom> RoomsList = new();
+    List<Amenity> AmenitiesList = new();
 
     protected override void OnInitialized()
     {
@@ -29,10 +41,10 @@
             Price = 499,
             RoomProps = new()
             {
-            new BlazorRoomProp { Id = 0, Name = "TVs", Value = "2" },
-            new BlazorRoomProp { Id = 1, Name = "IPads", Value = "1" },
-            new BlazorRoomProp { Id = 2, Name = "Phones", Value = "3" },
-        }
+                new BlazorRoomProp { Id = 0, Name = "TVs", Value = "2" },
+                new BlazorRoomProp { Id = 1, Name = "IPads", Value = "1" },
+                new BlazorRoomProp { Id = 2, Name = "Phones", Value = "3" },
+            }
         });
         RoomsList.Add(new BlazorRoom()
         {
@@ -42,9 +54,25 @@
             Price = 599,
             RoomProps = new()
             {
-            new BlazorRoomProp { Id = 0, Name = "TVs", Value = "10" },
-            new BlazorRoomProp { Id = 1, Name = "IPads", Value = "10" },
-            new BlazorRoomProp { Id = 2, Name = "Phones", Value = "30" },
-        }
+                new BlazorRoomProp { Id = 0, Name = "TVs", Value = "10" },
+                new BlazorRoomProp { Id = 1, Name = "IPads", Value = "10" },
+                new BlazorRoomProp { Id = 2, Name = "Phones", Value = "30" },
+            }
         });
+
+        AmenitiesList.Add(new Amenity()
+        {
+            Id = 101,
+            Name = "Pool",
+            Description = "Olympic Pool"
+        });
+
+        AmenitiesList.Add(new Amenity()
+        {
+            Id = 202,
+            Name = "Gym",
+            Description = "Awesome Gym"
+        });
+
+
     } }
