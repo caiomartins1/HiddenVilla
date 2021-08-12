@@ -1,0 +1,64 @@
+@page "/demohotel"
+@using Model
+
+
+<h3>We will display hotel rooms and amenities here!</h3>
+<div class="bg-light border p-2">
+    <h4>Room List [USING COMPONENT]</h4>
+    <div class="d-flex">
+        @foreach(var room in RoomsList)
+        {
+                <div class="bg-white border p-4">
+                    <p>@room.RoomName</p>
+                    <p>$@room.Price</p>
+                    <input type="checkbox" checked="@(room.IsActive ? "checked": null)" @bind-value="room.IsActive"/> Is Active
+                    <p>This room is @(room.IsActive ? "Active" : "Inactive")</p>
+                    @if (room.IsActive)
+                    {
+                        @foreach(var prop in room.RoomProps)
+                        {
+                            <p>@prop.Name - @prop.Value</p>
+                        }
+                    }
+                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn btn-primary">Edit</button>
+                </div>
+        }
+    </div>
+</div>
+
+
+@code
+{
+    List<BlazorRoom> RoomsList = new();
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        RoomsList.Add(new BlazorRoom()
+        {
+            Id = 1,
+            RoomName = "Room 1",
+            IsActive = true,
+            Price = 499,
+            RoomProps = new()
+            {
+            new BlazorRoomProp { Id = 0, Name = "TVs", Value = "2" },
+            new BlazorRoomProp { Id = 1, Name = "IPads", Value = "1" },
+            new BlazorRoomProp { Id = 2, Name = "Phones", Value = "3" },
+        }
+        });
+        RoomsList.Add(new BlazorRoom()
+        {
+            Id = 2,
+            RoomName = "Room 2",
+            IsActive = true,
+            Price = 599,
+            RoomProps = new()
+            {
+            new BlazorRoomProp { Id = 0, Name = "TVs", Value = "10" },
+            new BlazorRoomProp { Id = 1, Name = "IPads", Value = "10" },
+            new BlazorRoomProp { Id = 2, Name = "Phones", Value = "30" },
+        }
+        });
+    } }
