@@ -14,7 +14,7 @@
 
 <hr>
 
-<LifecycleComponent />
+<LifecycleComponent CountValue="@currentCount" />
 
 @code
 {
@@ -33,6 +33,17 @@
     protected override async Task OnInitializedAsync()
     {
         EventType.Add("OnInitializedAsync called");
+        await Task.Delay(1000);
+    }
+
+    protected override void OnParametersSet()
+    {
+        EventType.Add("OnParametersSet called");
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        EventType.Add("OnParametersSetAsync called");
         await Task.Delay(1000);
     }
 }

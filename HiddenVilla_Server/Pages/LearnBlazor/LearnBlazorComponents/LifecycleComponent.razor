@@ -10,8 +10,16 @@
 {
     List<string> EventType = new();
 
+    [Parameter]
+    public int CountValue { get; set; }
+
     protected override void OnInitialized()
     {
         EventType.Add("OnInitialized called");
+    }
+
+    protected override void OnParametersSet()
+    {
+        EventType.Add("OnParametersSet called");
     }
 }
