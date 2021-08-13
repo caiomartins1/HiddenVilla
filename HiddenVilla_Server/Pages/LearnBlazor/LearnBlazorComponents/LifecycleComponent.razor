@@ -1,0 +1,17 @@
+<h1>Counter Children</h1>
+
+@foreach (var item in EventType)
+{
+    @item
+    <hr />
+}
+
+@code
+{
+    List<string> EventType = new();
+
+    protected override void OnInitialized()
+    {
+        EventType.Add("OnInitialized called");
+    }
+}
