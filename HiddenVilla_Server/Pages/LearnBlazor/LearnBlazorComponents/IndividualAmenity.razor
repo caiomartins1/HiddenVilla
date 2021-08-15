@@ -1,6 +1,6 @@
 ﻿@using Model
 
-<div class="bg-white border p-4">
+<div class="bg-white border p-4" @onclick="(args) => AmenitySelection(args, Amenity.Name)">
     <p>Amenity - @Amenity.Id</p>
     <p>@Amenity.Name</p>
     <p>@Amenity.Description</p>
@@ -11,4 +11,12 @@
 {
     [Parameter]
     public Amenity Amenity { get; set; }
+
+    [Parameter]
+    public EventCallback<string> OnSelectAmenity { get; set; }
+
+    protected async Task AmenitySelection(MouseEventArgs e, string name)
+    {
+        await OnSelectAmenity.InvokeAsync(name);
+    }
 }

@@ -5,11 +5,12 @@
 <h3>We will display hotel rooms and amenities here!</h3>
 <div class="bg-light border p-2">
     <h4>Room List [USING COMPONENT]</h4>
+    <span>Rooms Selected - @SelectedRooms</span>
 
     <div class="d-flex">
         @foreach(var room in RoomsList)
         {
-            <IndividualRoom  Room="@room"/>
+            <IndividualRoom OnRoomCheckboxSelection="RoomSelectionCounterChanged" Room="@room"/>
         }
     </div>
 
@@ -18,15 +19,17 @@
     <div class="d-flex">
         @foreach(var amenity in AmenitiesList)
         {
-            <IndividualAmenity  Amenity="@amenity"/>
+            <IndividualAmenity OnSelectAmenity="@AmenitySelectionChanged" Amenity="@amenity"/>
         }
     </div>
 
 </div>
-
+Selected Amenity: @SelectedAmenity
 
 @code
 {
+    public string SelectedAmenity { get; set; } = "";
+    public int SelectedRooms { get; set; } = 0;
     List<BlazorRoom> RoomsList = new();
     List<Amenity> AmenitiesList = new();
 
@@ -74,5 +77,22 @@
             Description = "Awesome Gym"
         });
 
+    } 
+    protected void RoomSelectionCounterChanged(bool isRoomSeleted)
+    {
+        if (isRoomSeleted)
+        {
+            SelectedRooms++;
+        }
+        else
+        {
+            SelectedRooms--;
+        }
+        
+    }
 
-    } }
+    protected void AmenitySelectionChanged(string amenityName)
+    {   
+        SelectedAmenity = amenityName;
+    }
+}
