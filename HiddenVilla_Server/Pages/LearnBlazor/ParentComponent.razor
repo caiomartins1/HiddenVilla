@@ -2,18 +2,25 @@
 
 <h3 class="text-danger">Parent Component</h3>
 
-<ChildComponent Title="This title is passed as a parameter" >
+@* <ChildComponent Title="This title is passed as a parameter" >
   This info is passed from parent
 </ChildComponent>
 
 <ChildComponent Title="This is the second component (empty)" >
   
-</ChildComponent>
-<ChildComponent Title="This is the third component (not empty)" >
+</ChildComponent> *@
+<ChildComponent  OnClickBtnMethod="ShowMessage" Title="This is the third component (not empty)" >
   Oi
 </ChildComponent>
 
+<p>@messageText</p>
+
 @code
 {
+  private string messageText = "";
 
+  private void ShowMessage(MouseEventArgs e)
+  {
+    messageText = "Blazzing text from parent";
+  }
 }
