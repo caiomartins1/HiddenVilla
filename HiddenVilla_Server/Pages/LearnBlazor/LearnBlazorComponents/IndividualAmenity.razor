@@ -4,6 +4,16 @@
     <p>Amenity - @Amenity.Id</p>
     <p>@Amenity.Name</p>
     <p>@Amenity.Description</p>
+
+    @if (Fragment1 == null && Fragment2 == null)
+    {
+        <p>#</p>
+    }
+    else
+    {
+        <span>#@Fragment1</span>
+        <span>#@Fragment2</span>
+    }
     <EditDeleteButton IsAdmin="false" />
 </div>
 
@@ -14,6 +24,12 @@
 
     [Parameter]
     public EventCallback<string> OnSelectAmenity { get; set; }
+
+    [Parameter]
+    public RenderFragment Fragment1 { get; set; }
+
+    [Parameter]
+    public RenderFragment Fragment2 { get; set; }
 
     protected async Task AmenitySelection(MouseEventArgs e, string name)
     {

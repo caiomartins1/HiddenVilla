@@ -19,7 +19,14 @@
     <div class="d-flex">
         @foreach(var amenity in AmenitiesList)
         {
-            <IndividualAmenity OnSelectAmenity="@AmenitySelectionChanged" Amenity="@amenity"/>
+            <IndividualAmenity OnSelectAmenity="@AmenitySelectionChanged" Amenity="@amenity">
+                <Fragment1>
+                    1
+                </Fragment1>
+                <Fragment2>
+                    2
+                </Fragment2>
+            </IndividualAmenity>
         }
     </div>
 
