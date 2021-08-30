@@ -21,7 +21,7 @@
 <p>@messageText</p>
 
 @* <AnotherChildComponent Placeholder="Ente the Room Name" MaxLength="5"/> *@
-<AnotherChildComponent InputAttributes="@InputAttributesFromParent"/>
+<AnotherChildComponent placeholder="Placeholder from parent"/>
 
 @code
 {
@@ -32,6 +32,7 @@
     messageText = "Blazzing text from parent";
   }
 
+  /* 
   [Parameter]
   public Dictionary<string, object> InputAttributesFromParent { get; set; } = new()
   {
@@ -39,4 +40,6 @@
     { "placeholder", "Default placeholder"},
     { "maxlength", 5 }
   };
+  */
+
 }

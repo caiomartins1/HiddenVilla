@@ -10,6 +10,7 @@
   <input 
     id="roomName" 
     @attributes="@InputAttributes"
+    placeholder="Placeholder pref"
     class="form-control"
   />
 </div>
@@ -27,13 +28,8 @@
   public string MaxLength { get; set; } = "10";
   */
 
-  [Parameter]
-  public Dictionary<string, object> InputAttributes { get; set; } = new Dictionary<string, object>()
-  {
-    { "required", "required"},
-    { "placeholder", "Default placeholder"},
-    { "maxlength", 10 }
-  };
+  [Parameter(CaptureUnmatchedValues = true)]
+  public Dictionary<string, object> InputAttributes { get; set; } = new();
 
 
 }
