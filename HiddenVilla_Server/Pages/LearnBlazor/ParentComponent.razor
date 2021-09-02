@@ -9,14 +9,17 @@
 <ChildComponent Title="This is the second component (empty)" >
   
 </ChildComponent> *@
-<ChildComponent  OnClickBtnMethod="ShowMessage" Title="This is the third component (not empty)" Message="Ois">
-  <ChildContent>
-    Oi
-  </ChildContent>
-  @* <ChildContent2>
-    Oi
-  </ChildContent2> *@
-</ChildComponent>
+
+<CascadingValue Value="@messageForGrandChild">
+  <ChildComponent  OnClickBtnMethod="ShowMessage" Title="This is the third component (not empty)">
+    <ChildContent>
+      Oi
+    </ChildContent>
+    @* <ChildContent2>
+      Oi
+    </ChildContent2> *@
+  </ChildComponent>
+</CascadingValue>
 
 <p>@messageText</p>
 
@@ -31,6 +34,8 @@
   {
     messageText = "Blazzing text from parent";
   }
+
+  private string messageForGrandChild =  "Message from grand parent";
 
   /* 
   [Parameter]
