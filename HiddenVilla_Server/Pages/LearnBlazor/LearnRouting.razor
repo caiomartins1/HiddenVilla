@@ -1,0 +1,18 @@
+@page "/learnrouting"
+@page "/learnrouting/{id}"
+@page "/learnrouting/{id}/{name}"
+@page "/randomurl"
+
+<h3>Learn Routing</h3>
+
+<h4>id: @Id</h4>
+<h4>Name: @Name</h4>
+
+@code
+{
+  [Parameter]
+  public string Id { get; set; }
+
+  [Parameter]
+  public string Name { get; set; }
+}
