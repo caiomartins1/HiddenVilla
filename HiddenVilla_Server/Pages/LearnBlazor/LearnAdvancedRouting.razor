@@ -9,7 +9,10 @@
   <button class="btn btn-primary" @onclick="@LoadParameters">
     Load Parameters
   </button>
-  <NavLink href="learnrouting" class="btn btn-secondary">Back</NavLink>
+  @* <a href="learnrouting" class="btn btn-secondary">Back</a> *@
+  @* <NavLink href="learnrouting" class="btn btn-secondary">Back</NavLink> *@
+  <button class="btn btn-secondary" @onclick="@BackToRouting">Back</button> 
+  
 </p>
 
 @code
@@ -23,5 +26,10 @@
     var queryParam = System.Web.HttpUtility.ParseQueryString(absoluteUri.Query);
     p1 = queryParam["p1"];
     p2 = queryParam["p2"];
+  }
+
+  private void BackToRouting()
+  {
+    NavigationManager.NavigateTo("learnrouting");
   }
 }
