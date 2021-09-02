@@ -10,15 +10,17 @@
   
 </ChildComponent> *@
 
-<CascadingValue Value="@messageForGrandChild">
-  <ChildComponent  OnClickBtnMethod="ShowMessage" Title="This is the third component (not empty)">
-    <ChildContent>
-      Oi
-    </ChildContent>
-    @* <ChildContent2>
-      Oi
-    </ChildContent2> *@
-  </ChildComponent>
+<CascadingValue Value="@messageForGrandChild" Name="MessageForGrandChild">
+  <CascadingValue Value="@LuckyNumber" Name="LuckyNumber">
+    <ChildComponent  OnClickBtnMethod="ShowMessage" Title="This is the third component (not empty)">
+      <ChildContent>
+        Oi
+      </ChildContent>
+      @* <ChildContent2>
+        Oi
+      </ChildContent2> *@
+    </ChildComponent>
+  </CascadingValue>
 </CascadingValue>
 
 <p>@messageText</p>
@@ -36,6 +38,7 @@
   }
 
   private string messageForGrandChild =  "Message from grand parent";
+  public int LuckyNumber { get; set; } = 7;
 
   /* 
   [Parameter]
